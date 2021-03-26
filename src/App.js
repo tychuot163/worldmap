@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import { Popconfirm, message } from 'antd';
+import { Popover, Button } from 'antd';
 
 function confirm(e) {
   console.log(e);
@@ -12,6 +13,13 @@ function cancel(e) {
   message.error('Click on No');
 }
 
+const content = (
+  <div>
+    <p>Content</p>
+    <p>Content</p>
+  </div>
+);
+
 function App() {
   return (
     <div className="kiosk-container2 center-center">
@@ -22,6 +30,7 @@ function App() {
             <div>
               <p className="item pos1">
                 <span className="pin hvr-pulse">
+
                   <Popconfirm
                     title="Are you sure to delete this task?"
                     onConfirm={confirm}
@@ -30,7 +39,9 @@ function App() {
                     cancelText="No"
                   >
                     <a href="#">
-                      <i className="fa fa-map-marker" style={{ color: '#FF8066' }} />
+                      <Popover content={content} title="Area A">
+                        <i className="fa fa-map-marker" style={{ color: '#FF8066' }} />
+                      </Popover>
                     </a>
                   </Popconfirm>
                 </span>
@@ -49,7 +60,9 @@ function App() {
                     cancelText="No"
                   >
                     <a href="#">
-                      <i className="fa fa-map-marker" style={{ color: '#FF8066' }} />
+                      <Popover content={content} title="Area C">
+                        <i className="fa fa-map-marker" style={{ color: '#FF8066' }} />
+                      </Popover>
                     </a>
                   </Popconfirm>
                 </span>
@@ -60,7 +73,7 @@ function App() {
             <div>
               <p className="item pos3">
                 <span className="pin hvr-pulse">
-                <Popconfirm
+                  <Popconfirm
                     title="Are you sure to delete this task?"
                     onConfirm={confirm}
                     onCancel={cancel}
@@ -68,7 +81,9 @@ function App() {
                     cancelText="No"
                   >
                     <a href="#">
-                      <i className="fa fa-map-marker" style={{ color: '#FF8066' }} />
+                      <Popover content={content} title="Area B">
+                        <i className="fa fa-map-marker" style={{ color: '#FF8066' }} />
+                      </Popover>
                     </a>
                   </Popconfirm>
                 </span>
